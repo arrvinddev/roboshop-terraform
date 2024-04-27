@@ -4,7 +4,7 @@ pipeline {
             label 'workstation'
         }
     }
-}
+
 
 parameters { 
 choice(name: 'env', choices: ['dev', 'prod'], description: 'choose environment')
@@ -28,4 +28,5 @@ post {
      always {
         cleanWs()
      }
+}
 }
