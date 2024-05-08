@@ -125,29 +125,29 @@ data "aws_ami" "ami" {
 
 }
 
-resource "aws_instance" "load" {
-    ami = data.aws_ami.ami.id
-    instance_type = "t3.medium"
-    vpc_security_group_ids = ["sg-0eaf670e3921adc50"]
-    tags = {
-        Name = "load-runner"
-    }
-}
+# resource "aws_instance" "load" {
+#     ami = data.aws_ami.ami.id
+#     instance_type = "t3.medium"
+#     vpc_security_group_ids = ["sg-0eaf670e3921adc50"]
+#     tags = {
+#         Name = "load-runner"
+#     }
+# }
 
-resource "null_resource" "load" {
-    provisioner "remote-exec" {
-        connection {
-          host = aws_instance.load.private_ip
-          user = "root"
-          password = "DevOps321"
-        }
+# resource "null_resource" "load" {
+#     provisioner "remote-exec" {
+#         connection {
+#           host = aws_instance.load.private_ip
+#           user = "root"
+#           password = "DevOps321"
+#         }
 
-        inline = [
-            "curl -s https://raw.githubusercontent.com/linuxautomation/master/tools/docker/install.sh | bash",
-            "docker pull robotshop/rs-load"
-        ]
-    }
-}
+#         inline = [
+#             "curl -s https://raw.githubusercontent.com/linuxautomation/master/tools/docker/install.sh | bash",
+#             "docker pull robotshop/rs-load"
+#         ]
+#     }
+# }
 
 
 
