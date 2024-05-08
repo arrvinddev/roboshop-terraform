@@ -143,7 +143,7 @@ resource "null_resource" "load" {
         }
 
         inline = [
-            "curl -s https://raw.githubusercontent.com/linuxautomations/master/tools/docker/install.sh | bash",
+            "curl -s https://raw.githubusercontent.com/linuxautomations/labautomation/master/tools/docker/install.sh | bash",
             "docker pull robotshop/rs-load"
         ]
     }
