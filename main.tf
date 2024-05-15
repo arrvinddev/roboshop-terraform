@@ -126,7 +126,7 @@ module "eks" {
   DESIRED_SIZE       = 2
   MAX_SIZE           = 2
   MIN_SIZE           = 2
-  kms_arn            = var.kms_arn
+#   kms_arn            = var.kms_arn
 }
 
 
